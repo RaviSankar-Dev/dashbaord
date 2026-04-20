@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Rocket, Layers } from 'lucide-react';
+import { ArrowUpRight, Code2 } from 'lucide-react';
+
 const Dashboard = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,97 +21,103 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      <div className="flex justify-center items-center py-32">
+        <div className="relative w-16 h-16">
+           <div className="absolute inset-0 rounded-full border-t-2 border-primary animate-spin"></div>
+           <div className="absolute inset-2 rounded-full border-b-2 border-accent animate-spin-reverse"></div>
+        </div>
       </div>
     );
   }
 
   return (
-    <section className="py-20 bg-background min-h-[600px]">
-      <div className="container mx-auto px-4">
+    <section className="py-24 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12">
+        
+        <div className="flex items-center justify-between mb-16">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white tracking-tight">
+            Selected <span className="text-text-muted">Works</span>
+          </h2>
+          <div className="hidden sm:flex items-center gap-2 text-sm text-text-muted">
+            <span className="w-8 h-[1px] bg-white/20"></span>
+            <span>2026 Collection</span>
+          </div>
+        </div>
+
         {projects.length === 0 ? (
           <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex flex-col items-center justify-center text-center p-20 glass-card rounded-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col items-center justify-center text-center py-32 glass-card rounded-[2rem]"
           >
-            <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 mb-6">
-              <Layers size={32} />
+            <div className="w-20 h-20 bg-surface rounded-2xl flex items-center justify-center text-white/20 mb-6 border border-white/5 shadow-inner">
+              <Code2 size={40} />
             </div>
-            <h3 className="text-2xl font-bold text-text mb-2">Projects Coming Soon</h3>
-            <p className="text-slate-500 max-w-md">
-              We're currently updating our portfolio. Please check back later to explore our latest works and innovations.
+            <h3 className="text-2xl font-display font-bold text-white mb-3">Awaiting Transmissions</h3>
+            <p className="text-text-muted max-w-md">
+              Projects are currently syncing. Please check back shortly for our latest deployments.
             </p>
           </motion.div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
             <AnimatePresence>
               {projects.map((project, index) => (
-                <motion.div
+                <motion.a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   key={index}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="group relative overflow-hidden glass-card rounded-2xl transition-all duration-300 flex flex-col h-full"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.21, 1.11, 0.81, 0.99] }}
+                  className="group block"
                 >
-                  {/* Image Container */}
-                  <div className="relative h-48 overflow-hidden">
+                  {/* Card Image Wrapper */}
+                  <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden bg-surface mb-6 border border-white/5 shadow-2xl transition-all duration-500 group-hover:border-white/20 group-hover:shadow-primary/20">
+                    <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60 z-10"></div>
+                    
                     {project.image ? (
                       <img 
                         src={project.image} 
                         alt={project.title} 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                     ) : (
-                      <div className="w-full h-full primary-gradient opacity-10 flex items-center justify-center">
-                        <Rocket size={40} className="text-primary opacity-20" />
+                      <div className="w-full h-full flex items-center justify-center bg-surface-light">
+                        <Code2 size={40} className="text-white/10" />
                       </div>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  </div>
 
-                  <div className="p-6 flex flex-col flex-grow">
-                    <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="p-2 bg-white/90 backdrop-blur rounded-lg shadow-sm text-primary">
-                        <ExternalLink size={18} />
+                    {/* Floating Hover Badge */}
+                    <div className="absolute top-4 right-4 z-20 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                      <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center shadow-lg">
+                        <ArrowUpRight size={20} />
                       </div>
                     </div>
 
-                  {project.category && (
-                    <span className="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-md border border-accent/20">
-                      {project.category}
-                    </span>
-                  )}
-
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary">
-                      <Rocket size={20} />
-                    </div>
-                    <h3 className="text-xl font-bold text-text group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
+                    {/* Category Pill */}
+                    {project.category && (
+                      <div className="absolute bottom-4 left-4 z-20">
+                        <span className="glass-pill px-4 py-1.5 rounded-full text-xs font-semibold text-white backdrop-blur-md">
+                          {project.category}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
-                  <p className="text-slate-500 text-sm leading-relaxed mb-8 line-clamp-3">
-                    {project.description}
-                  </p>
-
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary/80 transition-all group/link"
-                  >
-                    View Project
-                    <div className="w-5 h-5 primary-gradient rounded-full flex items-center justify-center text-white group-hover/link:translate-x-1 transition-transform">
-                      <ExternalLink size={10} />
+                  {/* Card Content */}
+                  <div className="px-2">
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <h3 className="text-2xl font-display font-bold text-white group-hover:text-primary-light transition-colors">
+                        {project.title}
+                      </h3>
                     </div>
-                  </a>
+                    <p className="text-text-muted text-sm leading-relaxed line-clamp-2">
+                      {project.description}
+                    </p>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </AnimatePresence>
           </div>

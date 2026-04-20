@@ -1,64 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-background: #F8FAFC;
-  --color-primary: #4F46E5;
-  --color-text: #111827;
-  --color-accent: #14B8A6;
+  --color-background: #030303;
+  --color-surface: #0a0a0a;
+  --color-surface-light: #171717;
+  --color-primary: #8b5cf6; /* Violet */
+  --color-primary-light: #a78bfa;
+  --color-accent: #14b8a6; /* Teal */
+  --color-accent-light: #5eead4;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+
+  --animate-gradient-shift: gradient-shift 8s ease-in-out infinite;
+  --animate-spin-slow: spin 8s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 :root {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #F8FAFC;
-  color: #111827;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, .font-display {
-  font-family: 'Outfit', sans-serif;
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(20, 184, 166, 0.08), transparent 25%);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.primary-gradient-text {
+  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #14b8a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-gradient {
-  background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.1), transparent),
-              radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.1), transparent);
+  background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
 }
 
-.primary-gradient {
-  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-}
-
-.accent-gradient {
-  background: linear-gradient(135deg, #14B8A6 0%, #2DD4BF 100%);
+.mesh-bg {
+  background-color: #030303;
+  background-image: 
+    radial-gradient(at 40% 20%, hsla(267,100%,74%,0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189,100%,56%,0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355,100%,93%,0.05) 0px, transparent 50%);
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #030303;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: #262626;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #404040;
+}
+
+@keyframes gradient-xy {
+  0%, 100% {
+    background-size: 400% 400%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-xy {
+  animation: gradient-xy 3s ease infinite;
+}
+
+@utility animate-gradient-shift {
+  animation: var(--animate-gradient-shift);
+}
+
+@utility animate-spin-slow {
+  animation: var(--animate-spin-slow);
 }

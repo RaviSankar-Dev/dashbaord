@@ -5,5 +5,33 @@
     "link": "https://www.efour-eluru.com/",
     "category": "Entertainment & Dining",
     "image": "/assets/efour.png"
+  },
+  {
+    "title": "ethree.in",
+    "description": "Vijayawada's Premier Entertainment Hub. Eat. Enjoy. Entertain. A premium destination for food, fun, and entertainment. Select your favourite ride to book instantly and claim your points.",
+    "link": "https://www.ethree.in/",
+    "category": "Entertainment & Dining",
+    "image": "/assets/ethree.png"
+  },
+  {
+    "title": "Alankar Furniture",
+    "description": "Best Furniture Shop in Vijayawada – office, hospital & institutional furniture with premium designs.",
+    "link": "https://www.alankarfurniture.co.in/",
+    "category": "Furniture & Home Decor",
+    "image": "/assets/alankar.png"
+  },
+  {
+    "title": "Ghar Sansar",
+    "description": "Best Interior Designers in Andhra Pradesh & Telangana. Transform your home with premium decor items and professional interior design services.",
+    "link": "https://www.gharsansar.store/",
+    "category": "Interior Design",
+    "image": "/assets/gharsansar.png"
+  },
+  {
+    "title": "Abhinav Gold & Silver",
+    "description": "A premium platform for luxury trading featuring real-time live spot rates for Gold and Silver, ensuring transparency and trust.",
+    "link": "https://abhinavgoldandsilver.com/",
+    "category": "Finance & Jewellery",
+    "image": "/assets/abhinav.png"
   }
 ]
