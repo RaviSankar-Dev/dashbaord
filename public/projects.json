@@ -33,5 +33,40 @@
     "link": "https://abhinavgoldandsilver.com/",
     "category": "Finance & Jewellery",
     "image": "/assets/abhinav.png"
+  },
+  {
+    "title": "Meridian Global",
+    "description": "Premium Study Abroad consultancy platform helping students turn their international education dreams into reality.",
+    "link": "https://abroad-eight.vercel.app/",
+    "category": "Education & Global Careers",
+    "image": "/assets/meridian.png"
+  },
+  {
+    "title": "Sivakrishna Balaji Decors",
+    "description": "Exquisite wedding and event decor services, crafting distinguished spaces for your most celebrated moments.",
+    "link": "https://kalyanamadapam.vercel.app/",
+    "category": "Event Decor & Styling",
+    "image": "/assets/balaji.jpg"
+  },
+  {
+    "title": "CRK Visnero IT Services",
+    "description": "End-to-End IT Services & Solutions company engineering the future with world-class technology, ultra-premium designs, and scalable architectures.",
+    "link": "https://crkvisnerotechnolgiespvtltd.vercel.app/",
+    "category": "IT Services & Enterprise",
+    "image": "/assets/visnero.png"
+  },
+  {
+    "title": "WhatsApp Cloud Platform",
+    "description": "Enterprise-grade bulk messaging and automation SaaS providing seamless communication workflows via WhatsApp Cloud API.",
+    "link": "#",
+    "category": "SaaS & Communication",
+    "image": "/assets/whatsapp.png"
+  },
+  {
+    "title": "KKR High School Admin Portal",
+    "description": "Comprehensive school management ecosystem featuring advanced attendance tracking, financial analytics, and real-time student/principal coordination.",
+    "link": "#",
+    "category": "EdTech & Management SaaS",
+    "image": "/assets/kkr.png"
   }
 ]

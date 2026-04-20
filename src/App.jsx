@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Services from './components/Services';
 import Dashboard from './components/Dashboard';
 import Footer from './components/Footer';
 
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <main className="flex-grow">
         <Hero />
+        <Services />
         <Dashboard />
       </main>
       <Footer />

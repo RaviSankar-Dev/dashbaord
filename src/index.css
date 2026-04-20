@@ -2,15 +2,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #030303;
-  --color-surface: #0a0a0a;
-  --color-surface-light: #171717;
-  --color-primary: #8b5cf6; /* Violet */
-  --color-primary-light: #a78bfa;
-  --color-accent: #14b8a6; /* Teal */
-  --color-accent-light: #5eead4;
-  --color-text: #f8fafc;
-  --color-text-muted: #94a3b8;
+  --color-background: #F2EFE7;
+  --color-surface: #FFFFFF;
+  --color-surface-light: #ece9e1;
+  --color-primary: #8B004A; /* Alabaster Maroon */
+  --color-primary-light: #a61a65;
+  --color-accent: #1a1a1a; /* Contrast Black */
+  --color-accent-light: #333333;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666666;
 
   --animate-gradient-shift: gradient-shift 8s ease-in-out infinite;
   --animate-spin-slow: spin 8s linear infinite;
@@ -58,22 +58,22 @@ body {
 }
 
 .primary-gradient-text {
-  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #14b8a6 100%);
+  background: linear-gradient(135deg, #8B004A 0%, #a61a65 50%, #1a1a1a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .hero-gradient {
-  background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+  background: radial-gradient(circle at 50% 0%, rgba(139, 0, 74, 0.08) 0%, transparent 50%);
 }
 
 .mesh-bg {
-  background-color: #030303;
+  background-color: #F2EFE7;
   background-image: 
-    radial-gradient(at 40% 20%, hsla(267,100%,74%,0.1) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, hsla(189,100%,56%,0.1) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, hsla(355,100%,93%,0.05) 0px, transparent 50%);
+    radial-gradient(at 40% 20%, rgba(139, 0, 74, 0.05) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(26, 26, 26, 0.03) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(139, 0, 74, 0.02) 0px, transparent 50%);
 }
 
 /* Custom scrollbar */
@@ -82,16 +82,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #030303;
+  background: #F2EFE7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #d1cdc0;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #404040;
+  background: #8B004A;
 }
 
 @keyframes gradient-xy {
