@@ -28,25 +28,19 @@ const Footer = () => {
               <a href="mailto:crktech@gmail.com" className="text-text-muted hover:text-primary transition-colors inline-flex items-center gap-1 w-max group">
                 crktech@gmail.com <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
-              <a href="#" className="text-text-muted hover:text-primary transition-colors inline-flex items-center gap-1 w-max group">
-                Twitter <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <a href="tel:9346608305" className="text-text-muted hover:text-primary transition-colors inline-flex items-center gap-1 w-max group">
+                +91 93466 08305 <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
-              <a href="#" className="text-text-muted hover:text-primary transition-colors inline-flex items-center gap-1 w-max group">
-                LinkedIn <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <a href="tel:6303407430" className="text-text-muted hover:text-primary transition-colors inline-flex items-center gap-1 w-max group">
+                +91 63034 07430 <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+              <a href="tel:7780447363" className="text-text-muted hover:text-primary transition-colors inline-flex items-center gap-1 w-max group">
+                +91 77804 47363 <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>
           </div>
 
-          {/* QR Col */}
-          <div className="space-y-6">
-            <h4 className="font-display font-semibold text-text tracking-wide">Explore</h4>
-            <div className="p-4 bg-primary/5 rounded-2xl border border-primary/10 w-max group hover:border-primary/50 transition-colors">
-              <QrCode size={48} className="text-primary" />
-            </div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-text-muted">
-              Scan to view on mobile
-            </p>
-          </div>
+
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-primary/5 text-xs text-text-muted font-medium">

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Sparkles, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const Header = () => {
+const Header = ({ onHome }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,6 +26,7 @@ const Header = () => {
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
+          onClick={onHome}
           className="flex items-center gap-3 group cursor-pointer"
         >
           <div className="relative w-14 h-14 md:w-20 md:h-20 flex items-center justify-center rounded-2xl md:rounded-3xl bg-primary border border-primary/10 overflow-hidden shadow-2xl shrink-0">

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import CinematicJourney from './CinematicJourney';
 
-const Hero = () => {
+const Hero = ({ onDigitalMarketing }) => {
   // Staggered Text Animation Variants
   const containerVars = {
     hidden: { opacity: 0 },
@@ -52,7 +52,7 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto flex flex-col items-center">
           <motion.h1 
             variants={fadeUpVars}
-            className="text-5xl sm:text-7xl lg:text-[6rem] font-bold text-text font-display leading-[1.1] tracking-tight mb-8"
+            className="text-5xl sm:text-7xl lg:text-[6rem] font-bold text-black font-display leading-[1.1] tracking-tight mb-8"
           >
             Designing the <br className="hidden sm:block" />
             <span className="animate-gradient-shift bg-gradient-to-r from-primary via-primary-light to-primary bg-[size:200%_auto] text-transparent bg-clip-text inline-block pb-2">
@@ -72,16 +72,25 @@ const Hero = () => {
         {/* Button Animation */}
         <motion.div
            variants={fadeUpVars}
-           className="relative group"
+           className="flex flex-col sm:flex-row items-center gap-6"
         >
-          {/* Outer glow layer */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500 animate-pulse"></div>
-          
+          {/* Primary Action */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500 animate-pulse"></div>
+            <button 
+              onClick={() => window.scrollTo({ top: 800, behavior: 'smooth' })} 
+              className="relative px-8 py-4 bg-primary text-white border border-primary/20 rounded-full flex items-center justify-center space-x-3 transition-all duration-300 group-hover:scale-105 active:scale-95 shadow-2xl"
+            >
+              <span className="font-semibold text-white tracking-wide text-sm">Explore Our Projects</span>
+            </button>
+          </div>
+
+          {/* Marketing Action */}
           <button 
-            onClick={() => window.scrollTo({ top: 800, behavior: 'smooth' })} 
-            className="relative px-8 py-4 bg-primary text-white border border-primary/20 rounded-full flex items-center justify-center space-x-3 transition-all duration-300 group-hover:scale-105 active:scale-95 shadow-2xl"
+            onClick={onDigitalMarketing}
+            className="px-8 py-4 bg-white/10 hover:bg-white border border-black/5 hover:border-primary/20 rounded-full flex items-center justify-center space-x-3 transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl group"
           >
-            <span className="font-semibold text-white tracking-wide text-sm">Explore Our Projects</span>
+            <span className="font-semibold text-text group-hover:text-primary tracking-wide text-sm">Digital Marketing</span>
           </button>
         </motion.div>
       </motion.div>

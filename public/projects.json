@@ -1,5 +1,19 @@
 [
   {
+    "title": "Human Rights News Portal",
+    "description": "A high-authority digital platform for legal insights, breaking human rights news, and landmark judicial rulings. Engineering transparency through real-time journalism.",
+    "link": "https://human-rights-brown.vercel.app/",
+    "category": "Legal & News SaaS",
+    "image": "/assets/human-rights.png"
+  },
+  {
+    "title": "NSMOSA Alumni Association",
+    "description": "Official digital ecosystem for N. St. Mathew's Public School Old Students Association. Connecting global alumni, fostering professional growth, and driving community impact.",
+    "link": "https://nsm-web-nqwl.vercel.app/",
+    "category": "Alumni & Education",
+    "image": "/assets/nsm.png"
+  },
+  {
     "title": "efour-eluru",
     "description": "Eluru's Premier Entertainment Hub. Eat. Enjoy. Entertain. A premium destination for food, fun, and entertainment.",
     "link": "https://www.efour-eluru.com/",

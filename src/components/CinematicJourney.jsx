@@ -115,12 +115,12 @@ const CinematicJourney = () => {
             emissiveIntensity: 0,
             shininess: 100
         });
-        const crystal = new THREE.Mesh(new THREE.IcosahedronGeometry(12, 0), crystalMat);
+        const crystal = new THREE.Mesh(new THREE.IcosahedronGeometry(24, 0), crystalMat);
         coreGroup.add(crystal);
 
         const ringMat = new THREE.MeshBasicMaterial({ color: colors.primary, transparent: true, opacity: 0, side: THREE.DoubleSide });
         for (let i = 0; i < 5; i++) {
-            const ring = new THREE.Mesh(new THREE.TorusGeometry(15 + i * 5, 0.08, 16, 80), ringMat.clone());
+            const ring = new THREE.Mesh(new THREE.TorusGeometry(30 + i * 10, 0.2, 16, 80), ringMat.clone());
             ring.rotation.x = Math.PI / 2;
             ring.rotation.y = Math.random() * Math.PI;
             coreGroup.add(ring);
@@ -128,7 +128,7 @@ const CinematicJourney = () => {
 
         // INSTANCED MESH FOR SHARDS (High Performance)
         const shardCount = 200;
-        const shardGeo = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+        const shardGeo = new THREE.BoxGeometry(1.8, 1.8, 1.8);
         const shardMat = new THREE.MeshStandardMaterial({ 
             color: colors.primary, 
             transparent: true, 
@@ -143,9 +143,9 @@ const CinematicJourney = () => {
             const phi = Math.acos(-1 + (2 * i) / shardCount);
             const theta = Math.sqrt(shardCount * Math.PI) * phi;
             dummy.position.set(
-                60 * Math.cos(theta) * Math.sin(phi),
-                60 * Math.sin(theta) * Math.sin(phi),
-                60 * Math.cos(phi)
+                120 * Math.cos(theta) * Math.sin(phi),
+                120 * Math.sin(theta) * Math.sin(phi),
+                120 * Math.cos(phi)
             );
             dummy.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
             dummy.updateMatrix();
@@ -167,10 +167,10 @@ const CinematicJourney = () => {
         scene.add(grid2);
 
         // Lighting
-        const sunLight = new THREE.DirectionalLight(0xffffff, 2);
+        const sunLight = new THREE.DirectionalLight(0xffffff, 5);
         sunLight.position.set(100, 50, 100);
         scene.add(sunLight);
-        scene.add(new THREE.AmbientLight(0x222222));
+        scene.add(new THREE.AmbientLight(0x444444));
 
         camera.position.z = 200;
 
@@ -184,14 +184,14 @@ const CinematicJourney = () => {
         
         // THE TRANSITION: Fade to Murray Cream
         tl.to(scene.background, { r: 242/255, g:239/255, b:231/255, duration: 2 }, 6);
-        tl.to([grid.material, grid2.material], { opacity: 0.15, duration: 2 }, 6);
+        tl.to([grid.material, grid2.material], { opacity: 0.4, duration: 2 }, 6);
         tl.to(stars.material, { opacity: 0, duration: 1 }, 6);
         tl.to(nebula.material, { opacity: 0, duration: 1 }, 6);
 
         // Reveal Nexus Core & High-Performance Shards
-        tl.to(crystalMat, { opacity: 0.8, duration: 1.5 }, 6.5);
-        tl.to(coreGroup.children.filter(c => c.material).map(c => c.material), { opacity: 0.3, stagger: 0.1, duration: 1 }, 6.8);
-        tl.to(shardMat, { opacity: 0.6, duration: 2 }, 7); // Unified material reveal
+        tl.to(crystalMat, { opacity: 1.0, duration: 1.5 }, 6.5);
+        tl.to(coreGroup.children.filter(c => c.material).map(c => c.material), { opacity: 0.6, stagger: 0.1, duration: 1 }, 6.8);
+        tl.to(shardMat, { opacity: 0.9, duration: 2 }, 7); // Unified material reveal
         
         // Handoff to OrbitControls
         tl.to(camera.position, { x: 80, y: 50, z: 250, duration: 3, onComplete: () => {
@@ -210,7 +210,7 @@ const CinematicJourney = () => {
             // Core Animation
             crystal.rotation.x += 0.012;
             crystal.rotation.y += 0.012;
-            crystalMat.emissiveIntensity = 0.8 + Math.sin(Date.now() * 0.003) * 0.4;
+            crystalMat.emissiveIntensity = 1.2 + Math.sin(Date.now() * 0.003) * 0.6;
             
             // Rings Animation
             coreGroup.children.forEach((c, i) => {
